@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solução</title>
     <link rel="shurtcut icon" href="img/planeta-terra.png">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 <body>
     <div class="container">
@@ -28,8 +28,33 @@
             </nav>
         </header>
     </div>
-
-    <form action=""></form>
+    <h3>
+        Faça seu cadastro para contratar nossos serviços e levar tecnologia para a sua plantação.
+    </h3>
+    <form action="cadastrar" method="post">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <label for="c-name">Nome</label>
+            <input type="text" name="nome" id="c-nome"><br>
+            <label for="c-sobrenome">Sobrenome</label>
+            <input type="text" name="sobrenome" id="c-sobrenome"> <br>
+            <label for="c-email">E-mail</label>
+            <input type="email" name="email" id="c-email"><br>
+            <label for="c-telefone">Telefone com DDD</label>
+            <input type="tel" name="telefone" id="c-telefone"> <br><br>
+            <label for="c-feedback">Deixe uma observação (Pode ser algum detalhe sobre sua área).</label><br>
+            <textarea name="obs" required="" id="c-obs" cols="60" rows="10"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Usuário</legend>
+            <label for="c-user">Nome de Usuário</label>
+            <input type="text" name="user" id="c-user"><br>
+            <label for="c-senha">Senha</label>
+            <input type="password" name="senha" id="c-senha"><br>
+        </fieldset>
+            <br>
+            <input type="submit" value="Enviar">
+    </form>
     
     <br><br><br><br><br><br><br><br>
     <footer>

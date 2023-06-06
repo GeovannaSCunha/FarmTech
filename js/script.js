@@ -1,3 +1,14 @@
+//MODO NOTURNO
+// Obtém o botão e o elemento body do DOM
+var darkModeToggle = document.getElementById("dark-mode-toggle");
+var body = document.body;
+
+// Adiciona o ouvinte de evento ao botão
+darkModeToggle.addEventListener("click", function() {
+  // Alterna a classe dark-mode no elemento body
+  body.classList.toggle("dark-mode");
+});
+
 //função para validação
 function validar(campo, label, mensagem) {
     campo.addEventListener("keyup", () => {
@@ -30,12 +41,11 @@ validar(sobrenome, cSobrenome, legendaSobrenome);
      const cEmail = document.querySelector("label[for ='c-email']");
      const legendaEmail = document.querySelector("#legendaEmail");
      email.addEventListener("keyup", () => {
-          if (email.value.length >= 5 && email.value.includes("@")) {
+          if (email.value.length >= 5 && email.value.includes("@") && email.value!=null) {
                email.setAttribute("style", "outline-color: #dddddd");
                cEmail.setAttribute("style", "color: #00ff00");
                legendaEmail.innerHTML = "";
-
-          } else {
+          }else {
                email.setAttribute("style", "outline-color: #ff0000");
                cEmail.setAttribute("style", "color: #ff0000");
                legendaEmail.innerHTML = "O email precisa ter @ e 5 digitos ou mais.";
@@ -93,6 +103,7 @@ const botao = document.querySelector("#botao");
                 mensagem.setAttribute("style", "color: #00ff00");
                 document.getElementById("botao").disabled = true;
             } else {
+                document.getElementById("botao").disabled = true;
                 alert("ERRO. PREENCHA TODOS OS CAMPOS CORRETAMENTE!!!!");
             }
     

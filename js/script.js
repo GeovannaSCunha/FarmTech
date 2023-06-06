@@ -1,109 +1,28 @@
-
-//VALIDAÇÃO CADASTRO
-//função para validação
-function validar(campo, label, mensagem) {
-    campo.addEventListener("keyup", () => {
-      if (campo.value.length < 3) {
-        campo.setAttribute("style", "outline-color: #ff0000");
-        label.setAttribute("style", "color: #ff0000");
-        mensagem.innerHTML = "Campo obrigatório. Digite 3 caracteres ou mais";
-      } else {
-        campo.setAttribute("style", "outline-color: #00ff00");
-        label.setAttribute("style", "color: #00ff00");
-        mensagem.innerHTML = "";
-      }
-    });
+//DATA E HORA NAVEGADOR
+function exibirDataHora() {
+    var elemento = document.getElementById("data-hora");
+    var dataHora = new Date();
+    
+    var dia = dataHora.getDate();
+    var mes = dataHora.getMonth() + 1; // Os meses são indexados a partir de zero
+    var ano = dataHora.getFullYear();
+    
+    var hora = dataHora.getHours();
+    var minutos = dataHora.getMinutes();
+    var segundos = dataHora.getSeconds();
+    
+    var dataFormatada = "0"+ dia + "/" + "0"+ mes + "/" + ano;
+    var horaFormatada = hora + ":" + minutos + ":" + segundos;
+    
+    var dataHoraFormatada = dataFormatada + " " + horaFormatada;
+    
+    elemento.textContent = dataHoraFormatada;
   }
+  
+  // Chamar a função a cada segundo para atualizar a data e hora
+  setInterval(exibirDataHora, 1000);
 
-  //validação nome
-const nome = document.querySelector("input[name='nome']");
-const cNome = document.querySelector("label[for ='c-name']");
-const legendaNome = document.querySelector("#legendaNome");
-validar(nome, cNome, legendaNome);
 
- //validação sobrenome  
-const sobrenome = document.querySelector("input[name='sobrenome']");
-const cSobrenome = document.querySelector("label[for ='c-sobrenome']");
-const legendaSobrenome = document.querySelector("#legendaSobrenome");
-validar(sobrenome, cSobrenome, legendaSobrenome);
-
-//validação email
-    const email = document.querySelector("input[name='email']");
-     const cEmail = document.querySelector("label[for ='c-email']");
-     const legendaEmail = document.querySelector("#legendaEmail");
-     email.addEventListener("keyup", () => {
-          if (email.value.length >= 5 && email.value.includes("@") && email.value!=null) {
-               email.setAttribute("style", "outline-color: #dddddd");
-               cEmail.setAttribute("style", "color: #00ff00");
-               legendaEmail.innerHTML = "";
-          }else {
-               email.setAttribute("style", "outline-color: #ff0000");
-               cEmail.setAttribute("style", "color: #ff0000");
-               legendaEmail.innerHTML = "O email precisa ter @ e 5 digitos ou mais.";
-          }
-          });
-//Validação telefone
-const telefone = document.querySelector("input[name='telefone']");
-const cTelefone = document.querySelector("label[for ='c-telefone']");
-const legendaTelefone = document.querySelector("#legendaTelefone")
-telefone.addEventListener("keyup", () => {
-    if(telefone.value.length >= 11) {
-        telefone.setAttribute("style", "color: #00ff00");
-        cTelefone.setAttribute("style", "color: #00ff00");
-        legendaTelefone.innerHTML = "";
-    }else {
-        telefone.setAttribute("style", "outline-color: #ff0000");
-        cTelefone.setAttribute("style", "color: #ff0000");
-        legendaTelefone.innerHTML = "O telefone precisa conter 11 digitos contando com DDD.";
-   }
-});
-
-//validação caixa de texto de observação
-const caixaTexto = document.querySelector("#c-obs");
-const legendaObs = document.querySelector("#observacao");
-const labelObs = document.querySelector("label[for ='c-feedback']");
-
-caixaTexto.addEventListener("keyup",()=>{
-    if (caixaTexto.value.length < 10) {
-        legendaObs.innerHTML = "Campo obrigatório. Digite 10 caractres ou mais";
-        caixaTexto.setAttribute("style", "outline-color: #ff0000");
-        labelObs.setAttribute("style", "color: #ff0000");
-      } else {
-       legendaObs.innerHTML = "";
-       caixaTexto.setAttribute("style", "outline-color: #00ff00");
-       labelObs.setAttribute("style", "color: #00ff00");
-
-      }
-    })
-
-const botao = document.querySelector("#botao");
-const welcome= document.querySelector("#welcome");
-
- botao.addEventListener("click", ()=>{
-   
-    //if(evento.target.id == "botao"){
-        // let arroba;
-        // if (email.value.includes("@")) {
-        // arroba = true;
-        // } else {
-        // arroba = false;
-        // }
-
-            if (nome.value.length>=3 && sobrenome.value.length>=3 && email.value.length >= 5 && email.value.includes("@") && caixaTexto.value.length>=10 && telefone.value.length >= 11) {
-       
-                welcome.innerHTML = "Bem-Vindo!!!";
-                welcome.setAttribute("style", "color: #00ff00");
-                document.getElementById("botao").disabled = true;
-                alert("Bem-Vindo!!! Cadastro realizado com sucesso.");
-            } else {
-                document.getElementById("botao").disabled = false;
-                alert("ERRO. PREENCHA TODOS OS CAMPOS CORRETAMENTE!!!!");
-            }
-    
-    });
-
-    // 
-    
 //MODO NOTURNO
 // Obtém o botão e o elemento body do DOM
  var darkModeToggle = document.getElementById("dark-mode-toggle");
@@ -111,7 +30,31 @@ const welcome= document.querySelector("#welcome");
 
  // Adiciona o ouvinte de evento ao botão
  darkModeToggle.addEventListener("click", function() {
-   // Alterna a classe dark-mode no elemento body
+   // Alterna a classe dark-mode no elemento body 
    body.classList.toggle("dark-mode");
  });
+  
 
+ //SLIDESHOW
+ // Array com os URLs dos banners
+var banners = ["./img/banner1.png", "./img/banner2.png", "./img/banner3.png"];
+
+// Variável para controlar o índice atual do banner
+var currentBanner = 0;
+
+// Função para trocar o banner
+function changeBanner() {
+  // Atualiza o atributo src da imagem com o próximo banner
+  document.getElementById("imgInicial").src = banners[currentBanner];
+
+  // Incrementa o índice atual
+  currentBanner++;
+
+  // Se o índice atual for maior que o número de banners, volta ao primeiro
+  if (currentBanner >= banners.length) {
+    currentBanner = 0;
+  }
+}
+
+// Chama a função de troca de banner a cada 5 segundos (5000 milissegundos)
+setInterval(changeBanner, 2000);

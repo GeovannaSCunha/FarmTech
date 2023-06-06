@@ -43,6 +43,19 @@ validar(sobrenome, cSobrenome, legendaSobrenome);
           });
 //Validação telefone
 const telefone = document.querySelector("input[name='telefone']");
+const cTelefone = document.querySelector("label[for ='c-telefone']");
+const legendaTelefone = document.querySelector("#legendaTelefone")
+telefone.addEventListener("keyup", () => {
+    if(telefone.value.length >= 11) {
+        telefone.setAttribute("style", "color: #00ff00");
+        cTelefone.setAttribute("style", "color: #00ff00");
+        legendaTelefone.innerHTML = "";
+    }else {
+        telefone.setAttribute("style", "outline-color: #ff0000");
+        cTelefone.setAttribute("style", "color: #ff0000");
+        legendaTelefone.innerHTML = "O telefone precisa conter 11 digitos contando com DDD.";
+   }
+});
 
 //validação caixa de texto de observação
 const caixaTexto = document.querySelector("#c-obs");
@@ -74,13 +87,13 @@ const botao = document.querySelector("#botao");
         arroba = false;
         }
 
-            if (nome.value.length>=3 && sobrenome.value.length>=3 && email.value.length>=3 && linha.value.length>=3 && caixaTexto.value.length>=10 && arroba == true) {
+            if (nome.value.length>=3 && sobrenome.value.length>=3 && email.value.length >= 5 && email.value.includes("@") && linha.value.length>=3 && caixaTexto.value.length>=10 && telefone.value.length >= 11) {
        
                 mensagem.innerHTML = "Bem-Vindo!!!";
                 mensagem.setAttribute("style", "color: #00ff00");
                 document.getElementById("botao").disabled = true;
             } else {
-                alert("ERRO. PREENCHA TODOS OS CAMPOS CORRETAMENTE!!!!")
+                alert("ERRO. PREENCHA TODOS OS CAMPOS CORRETAMENTE!!!!");
             }
     
     }});

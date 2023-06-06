@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container{
+    max-width: 1920px;
+    width: 100%;
+}
+header{
+    position: relative;
+    top: 0;
+    height: auto;
+    width: 100%;
+}
+nav{
+    position: fixed;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    border-bottom: 1px solid #CCC;
+}
+.nav-container{
+    max-width: 1200px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+#logo{
+    margin-top: 8px;
+}
+.nav-container ul{
+    float: right;
+    height: 80px;
+    line-height: 80px;
+    margin: 0;
+}
+.nav-container li{
+    list-style: none;
+    float: left;
+    margin: 0 15px;
+}
+.nav-container li a{
+    text-decoration: none;
+    color: #000000;
+   
+}
+.nav-container li a:hover{
+    color: #57a854;
+}
+
+main{
+    margin-top: 100px;
+    padding: 10px;
+}
+main h1{
+    text-align: center;
+}
+.main-conteudo{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: justify;
+    text-indent: 25px;
+}
+#texto1{
+    width: 49%;
+}
+#texto2{
+    width: 49%;
+}
+footer{
+    background-color: rgb(226, 226, 226);
+    color: rgb(61, 61, 61);
+    padding: 80px;
+    text-align: center;
+}

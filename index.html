@@ -7,8 +7,27 @@
     <title>FarmTech</title>
     <link rel="shurtcut icon" href="img/planeta-terra.png">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+    <script src="./js/horario.js" defer></script>
+    <style>
+        /* Estilos para o modo claro */
+        body {
+          background-color: #ffffff;
+          color: #000000;
+        }
+    
+        /* Estilos para o modo escuro */
+        body.dark-mode {
+          background-color: #222222;
+          color: #ffffff;
+        }
+      </style>
+
 </head>
 <body>
+    <script>
+        alert("Seja Bem-Vindo a FarmTech!")
+    </script>
     <div class="container">
         <header>
             <nav>
@@ -28,9 +47,22 @@
             </nav>
         </header>
     </div>
-
     <main>
         <div class="main">
+            <button id="dark-mode-toggle">DarkMode</button>
+    <script>
+      // Obtém o botão e o elemento body do DOM
+      var darkModeToggle = document.getElementById("dark-mode-toggle");
+      var body = document.body;
+  
+      // Adiciona o ouvinte de evento ao botão
+      darkModeToggle.addEventListener("click", function() {
+        // Alterna a classe dark-mode no elemento body
+        body.classList.toggle("dark-mode");
+      });
+    </script>
+            <p id="data-hora"> Data e Hora</p>
+            
             <h1>IMPORTÂNCIA DO COMBATE A FOME E DA AGRICULTURA SUSTENTÁVEL</h1>
             <br>
             <div class="main-conteudo">

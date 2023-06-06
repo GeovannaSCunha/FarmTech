@@ -1,3 +1,5 @@
+
+//VALIDAÇÃO CADASTRO
 //função para validação
 function validar(campo, label, mensagem) {
     campo.addEventListener("keyup", () => {
@@ -30,12 +32,11 @@ validar(sobrenome, cSobrenome, legendaSobrenome);
      const cEmail = document.querySelector("label[for ='c-email']");
      const legendaEmail = document.querySelector("#legendaEmail");
      email.addEventListener("keyup", () => {
-          if (email.value.length >= 5 && email.value.includes("@")) {
+          if (email.value.length >= 5 && email.value.includes("@") && email.value!=null) {
                email.setAttribute("style", "outline-color: #dddddd");
                cEmail.setAttribute("style", "color: #00ff00");
                legendaEmail.innerHTML = "";
-
-          } else {
+          }else {
                email.setAttribute("style", "outline-color: #ff0000");
                cEmail.setAttribute("style", "color: #ff0000");
                legendaEmail.innerHTML = "O email precisa ter @ e 5 digitos ou mais.";
@@ -76,24 +77,41 @@ caixaTexto.addEventListener("keyup",()=>{
     })
 
 const botao = document.querySelector("#botao");
+const welcome= document.querySelector("#welcome");
 
- botao.addEventListener("click", (evento)=>{
+ botao.addEventListener("click", ()=>{
    
-    if(evento.target.id == "botao"){
-        let arroba;
-        if (email.value.includes("@")) {
-        arroba = true;
-        } else {
-        arroba = false;
-        }
+    //if(evento.target.id == "botao"){
+        // let arroba;
+        // if (email.value.includes("@")) {
+        // arroba = true;
+        // } else {
+        // arroba = false;
+        // }
 
-            if (nome.value.length>=3 && sobrenome.value.length>=3 && email.value.length >= 5 && email.value.includes("@") && linha.value.length>=3 && caixaTexto.value.length>=10 && telefone.value.length >= 11) {
+            if (nome.value.length>=3 && sobrenome.value.length>=3 && email.value.length >= 5 && email.value.includes("@") && caixaTexto.value.length>=10 && telefone.value.length >= 11) {
        
-                mensagem.innerHTML = "Bem-Vindo!!!";
-                mensagem.setAttribute("style", "color: #00ff00");
+                welcome.innerHTML = "Bem-Vindo!!!";
+                welcome.setAttribute("style", "color: #00ff00");
                 document.getElementById("botao").disabled = true;
+                alert("Bem-Vindo!!! Cadastro realizado com sucesso.");
             } else {
+                document.getElementById("botao").disabled = false;
                 alert("ERRO. PREENCHA TODOS OS CAMPOS CORRETAMENTE!!!!");
             }
     
-    }});
+    });
+
+    // 
+    
+//MODO NOTURNO
+// Obtém o botão e o elemento body do DOM
+ var darkModeToggle = document.getElementById("dark-mode-toggle");
+ var body = document.body;
+
+ // Adiciona o ouvinte de evento ao botão
+ darkModeToggle.addEventListener("click", function() {
+   // Alterna a classe dark-mode no elemento body
+   body.classList.toggle("dark-mode");
+ });
+

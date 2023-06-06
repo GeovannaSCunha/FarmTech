@@ -28,7 +28,7 @@ function exibirDataHora() {
 
  // Adiciona o ouvinte de evento ao botão
  darkModeToggle.addEventListener("click", function() {
-   // Alterna a classe dark-mode no elemento body
+   // Alterna a classe dark-mode no elemento body 
    body.classList.toggle("dark-mode");
  });
   
